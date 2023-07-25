@@ -1,0 +1,77 @@
+{
+	// 下面在使用 node 如果需要匹配node_modules内的vue文件
+	// 需要使用packageName/path/to/vue-file-$1.vue形式的匹配规则
+	// 其中packageName为安装的包名，/path/to/vue-file-$1.vue为vue文件在包内的路径。
+
+	// "easycom": {
+	//   "autoscan": true,
+	//   "custom": {
+	//     "^uni-(.*)": "@/components/uni-$1.vue", // 匹配components目录内的vue文件
+	//     "^vue-file-(.*)": "packageName/path/to/vue-file-$1.vue" // 匹配node_modules内的vue文件
+	//   }
+	// },
+
+	// 例如： node_modules 中导入组件 uview-ui 组件，其中组件目录为 node_modules/uview-ui/components/组件目录索引(例：u-button)/组件实现(例如：u-button.vue)
+	// 可以像如下所示编写
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			//u- 为 u- 开头的组件，后面的一样，$1动态匹配通前缀的第二个字符串(上面案例的 button)
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue" // 匹配node_modules内的uni组件
+		}
+	},
+
+	"pages": [{
+		"path": "pages/launch/launch",
+		"style": {
+			"navigationStyle": "custom", //不显示导航，避免出现阴影
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/index/index",
+		"style": {
+			"navigationBarTitleText": "uni-app",
+			"enablePullDownRefresh": true //打开下来刷新
+		}
+	}, {
+		"path": "pages/user/user",
+		"style": {
+			"navigationBarTitleText": "user",
+			"enablePullDownRefresh": false
+		}
+	}, {
+		"path": "pages/login/login",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
+
+	}],
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#3cc51f",
+		"borderStyle": "black",
+		"backgroundColor": "#ffffff",
+		"list": [{
+			"pagePath": "pages/index/index",
+			"iconPath": "static/c1.png",
+			"selectedIconPath": "static/c2.png",
+			"text": "首页"
+		}, {
+			"pagePath": "pages/user/user",
+			"iconPath": "static/c3.png",
+			"selectedIconPath": "static/c4.png",
+			"text": "我的"
+		}]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+	}
+}

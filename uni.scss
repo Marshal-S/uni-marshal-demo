@@ -1,0 +1,61 @@
+@import '@/uni_modules/uni-scss/variables.scss';
+
+$background-color: #fff;
+$theme-color: blue;
+$black: #333;
+$grey: #979797;
+$grey-black: #666;
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	background-color: $background-color;
+}
+
+.theme-bkg {
+	background-color: $background-color;
+}
+
+.theme-color {
+	color: $theme-color;
+}
+
+.black {
+	color: $black;
+}
+
+.grey-black {
+  color: $grey-black;
+}
+
+.grey {
+  color: $grey;
+}
+
+.normal-size {
+	font-size: 28rpx;
+}
+
+.small-size {
+	font-size: 24rpx;
+}
+
+.large-size {
+	font-size: 32rpx;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.single-line {
+	width: 100px;  //宽度，也可以设置高度
+	word-break: break-all; //字符串截断
+	overflow: hidden; //超出边界后隐藏，避免控制不住越界问题
+	display: -webkit-box; //布局方式更新
+	-webkit-line-clamp: 2; //设置截断的行数
+	-webkit-box-orient: vertical; //垂直方向限制
+}
+
+
