@@ -8,7 +8,10 @@
 		</dy-double-button>
 		<text>总年龄：{{totolAge}}</text>
 		<text>平均年龄：{{averageAge}}</text>
+		<text>我是{{stu.name}}</text>
 		<view @click="onUpdateName">点击我从外部更新desc</view>
+		<my-button />
+		<view @click="goOrder">点击进入my-order</view>
 	</view>
 </template>
 
@@ -23,6 +26,9 @@
 				name: 'marshal绑定',
 				desc: '',
 				age: 40,
+				stu: {
+					name: '小刘'
+				}
 			}
 		},
 		computed: {
@@ -90,7 +96,13 @@
 			},
 			onUpdateName() {
 				this.desc = '哈哈哈哈哈哈'
+				this.stu.name = '大刘了'
 			},
+			goOrder() {
+				uni.navigateTo({
+					url: "/pages/my-order/my-order"
+				})
+			}
 		}
 	}
 </script>

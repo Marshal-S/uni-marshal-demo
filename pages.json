@@ -11,13 +11,14 @@
 	//   }
 	// },
 
-	// 例如： node_modules 中导入组件 uview-ui 组件，其中组件目录为 node_modules/uview-ui/components/组件目录索引(例：u-button)/组件实现(例如：u-button.vue)
+	// 例如： node_modules 中导入组件 uview-ui 组件，其中组件目录为 node_modules/uview-ui/components/组件目录索引(例：uni-badge)/组件实现(例如：uni-badge.vue)
 	// 可以像如下所示编写
 	"easycom": {
 		"autoscan": true,
 		"custom": {
-			//u- 为 u- 开头的组件，后面的一样，$1动态匹配通前缀的第二个字符串(上面案例的 button)
-			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue" // 匹配node_modules内的uni组件
+			//u- 为 u- 开头的组件，后面的一样，$1动态匹配通前缀的第二个字符串(上面案例的 uni-badge 中的 badge)
+			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue", // 匹配node_modules内的uni组件
+			"^my-(.*)": "@/component/my-$1/my-$1.vue" // 匹配自检的components里面的组件，my-为前缀
 		}
 	},
 
@@ -46,7 +47,12 @@
 			"navigationBarTitleText": "",
 			"enablePullDownRefresh": false
 		}
-
+	}, {
+		"path": "pages/my-order/my-order",
+		"style": {
+			"navigationBarTitleText": "",
+			"enablePullDownRefresh": false
+		}
 	}],
 	"tabBar": {
 		"color": "#7A7E83",

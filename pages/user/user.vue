@@ -14,7 +14,7 @@
 		<text>总年龄：{{totolAge}}</text>
 		<text>平均年龄：{{averageAge}}</text>
 		
-		<view v-for="(item, index) in listData">
+		<view v-for="(item, index) in listData" :key="index">
 			<text>第{{index + 1}}个元素是：{{item}}</text>
 		</view>
 	</view>
@@ -27,7 +27,7 @@
 		onMounted,
 		reactive,
 		ref,
-		shallowReactive,
+		shallowReactive
 	} from 'vue'
 	
 	import { onLoad, onShow, onUnload} from '@dcloudio/uni-app'
@@ -40,7 +40,7 @@
 			subTitle: '子标题'
 		}
 	}) //这个也是
-
+ 
 	//使用上方便了
 	const data = reactive({
 		name: '哈哈',
@@ -70,6 +70,7 @@
 	const listData = ref([1, 2, 3, 4, 5, 6])
 	
 	const averageAge = computed(() => (data.age + shadowData.age) / 2)
+	
 	const totolAge = computed({
 		get() {
 			return data.age + shadowData.age
@@ -142,9 +143,9 @@
 	
 	function onLogin() {
 		let name = 'marshal'
-		// uni.navigateTo({
-		// 	url: `/pages/login/login?name=${name}` //长度受限不推荐
-		// })
+		uni.navigateTo({
+			url: `/pages/login/login?name=${name}` //长度受限不推荐
+		})
 		
 		uni.navigateTo({
 			url: '/pages/login/login',
